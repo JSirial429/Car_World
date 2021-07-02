@@ -1,0 +1,19 @@
+.container{
+    margin-top: 40px;
+    color: tomato;
+}
+
+.Title-Header{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.updateBtn{
+    background-color:blue;
+    color: white;
+}
+
+.deleteBtn{
+    background-color: red;
+    color: white;
+}
