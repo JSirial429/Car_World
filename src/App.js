@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import AddCar from "./components/add-car.components";
 import CarList from "./components/car-list.components"
+import Navbar from "./components/navbar/navbar.components";
 
 //import AddTutorial from "./components/add-tutorial.component";
 //import Tutorial from "./components/tutorial.component";
@@ -15,7 +16,9 @@ class App extends Component{
     return(
       <div>
 
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
+        <Navbar></Navbar>
+        
+        {/* <nav className="navbar navbar-expand navbar-dark bg-dark">
           
           <a href="/" className="navbar-brand">
             <img src="car.png" alt="Car Logo"></img>
@@ -34,7 +37,7 @@ class App extends Component{
             </li>
           </div>
         
-          </nav>
+          </nav> */}
 
           <div className="route-container">
             <Route exact path="/add" component={AddCar}/>
