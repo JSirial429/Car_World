@@ -5,6 +5,7 @@ import "./App.css";
 import AddCar from "./components/add-car.components";
 import CarList from "./components/car-list.components"
 import Navbar from "./components/navbar/navbar.components";
+import MainPage from "./components/main-page.components";
 
 //import AddTutorial from "./components/add-tutorial.component";
 //import Tutorial from "./components/tutorial.component";
@@ -42,6 +43,7 @@ class App extends Component{
           <div className="route-container">
             <Route exact path="/add" component={AddCar}/>
             <Route exact path="/cars" component={CarList}/>
+            <Route exact path="/" component={MainPage}/>
           </div>
 
       </div>

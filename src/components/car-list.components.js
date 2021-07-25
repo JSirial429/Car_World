@@ -2,10 +2,10 @@ import React, {Component} from "react";
 import * as ReactBootStrap from "react-bootstrap";
 import CarDataService from "../services/car.service"
 import Modal from "./modal/update-modal"
+import UpdateCar from "./update-car.components.js"
 import { Route, Link } from "react-router-dom"
 import "../App.css"
-import UpdateCar from "./update-car.components.js"
-import { render } from "@testing-library/react";
+//import { render } from "@testing-library/react";
 
 export default class CarList extends Component{
 
