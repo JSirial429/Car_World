@@ -13,18 +13,26 @@ export default class AddCar extends Component{
         this.onChangeModel = this.onChangeModel.bind(this);
         this.onChangeMiles = this.onChangeMiles.bind(this);
         this.onChangeColor = this.onChangeColor.bind(this);
+        this.onChangeTransmission = this.onChangeTransmission.bind(this);
         
         this.saveCar = this.saveCar.bind(this);
         
 
         this.state = {
-            id: null,
+            //id: null,
+            vin="",
             make: "",
             model: "",
             color: "",
-            miles: ""
+            miles: "",
+            transmission: "",
         };
     
+    }
+
+    onChangeTransmission(e){
+        this.setState({transmission: e.target.value})
+        console.log(this.state.transmission);
     }
 
     onChangeMake(e){
@@ -52,7 +60,7 @@ export default class AddCar extends Component{
         }
         else{
 
-            alert("Please put in number in mileage field.");
+            alert("Please put numbers only in mileage field.");
         }
         console.log(this.state.miles);
     }
