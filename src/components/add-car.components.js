@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import CarDataService from "../services/car.service"
 import "../App.css"
+import './css/main-page.css'
 import { Alert } from "bootstrap";
 
 export default class AddCar extends Component{
@@ -9,6 +10,7 @@ export default class AddCar extends Component{
         
         super(props);
         //Each represents a field in the form
+        this.onChangeVin = this.onChangeVin.bind(this);
         this.onChangeMake = this.onChangeMake.bind(this);
         this.onChangeModel = this.onChangeModel.bind(this);
         this.onChangeMiles = this.onChangeMiles.bind(this);
@@ -20,7 +22,7 @@ export default class AddCar extends Component{
 
         this.state = {
             //id: null,
-            vin="",
+            vin:"",
             make: "",
             model: "",
             color: "",
@@ -30,8 +32,13 @@ export default class AddCar extends Component{
     
     }
 
+    onChangeVin(e){
+        this.setState({vin: e.target.value});
+        console.log(this.state.vin);
+    }
+
     onChangeTransmission(e){
-        this.setState({transmission: e.target.value})
+        this.setState({transmission: e.target.value});
         console.log(this.state.transmission);
     }
 
@@ -101,6 +108,18 @@ export default class AddCar extends Component{
             <form>
 
               <div className="form-group">
+                <label>VIN</label>
+                <input type="text"
+                       className="form-control"
+                       id="vin"
+                       value={this.state.vin}
+                       onChange={this.onChangeVin}
+                       name="vin"
+                       placeholder="Enter Vin"
+                required/>
+              </div>
+
+              <div className="form-group">
                 <label>Make</label>
                   <input
                    type="text"
@@ -126,18 +145,6 @@ export default class AddCar extends Component{
                    required/>
               </div>
 
-              <div className="form-group">
-                <label>Color</label>
-                  <input
-                   type="text"
-                   className="form-control"
-                   id="color"
-                   value={this.state.color}
-                   onChange={this.onChangeColor}
-                   name="color"
-                   placeholder="Enter Color"
-                   required/>
-              </div>
 
               <div className="form-group">
                 <label>Miles</label>
@@ -151,6 +158,48 @@ export default class AddCar extends Component{
                    placeholder="Enter Miles"
                    required/>
               </div>
+              
+              <div className="form-group">
+                <label>Color:</label>
+                  {/* <input
+                   type="text"
+                   className="form-control"
+                   id="color"
+                   value={this.state.color}
+                   onChange={this.onChangeColor}
+                   name="color"
+                   placeholder="Enter Color"
+                   required/> */}
+                  <select value={this.state.value} onChange={this.onChangeColor} className="color-dl">
+                    <option value="Black">Black</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Red">Red</option>
+                    <option value="White">White</option>
+                    <option value="Silver">Silver</option>
+                    <option value="Green">Green</option>
+                    <option value="Orange">Orange</option>
+                  </select>
+              </div>
+
+              <div >
+                <input type="radio" 
+                       className="radio-buttons-man"
+                       id="transmission"
+                       onChange={this.onChangeTransmission}
+                       name="transmission"
+                       value="manual"
+                />
+                Manual
+                <input type="radio" 
+                       className="radio-buttons-auto"
+                       id="transmission"
+                       onChange={this.onChangeTransmission}
+                       name="transmission"
+                       value="automatic"
+                />
+                Automatic
+              </div>
+
             </form>
 
               <button onClick={this.saveCar} className="btn-submit">Submit</button>
