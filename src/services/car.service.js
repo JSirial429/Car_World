@@ -2,7 +2,7 @@ import http from "../http-common"
 
 //Data service that uses axios to submit HTTP request to Spring Boot
 class CarDataService{
-    getAll(){
+    /* getAll(){
         return http.get(`/cars`)
     }
 
@@ -20,6 +20,27 @@ class CarDataService{
 
     deleteCar(id){
         return http.delete(`/delete/${id}`)
+    }
+ */
+
+    getAllCars(){
+        return http.get('/cars');
+    }
+
+    postCar(){
+        return http.post('/car');
+    }
+
+    deleteCar(){
+
+        return http.post('/deleteCar');
+
+    }
+
+    updateCar(){
+
+        return http.post('/updateCar');
+
     }
 
 }
