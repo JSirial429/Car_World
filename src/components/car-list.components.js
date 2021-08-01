@@ -58,7 +58,7 @@ export default class CarList extends Component{
 
     retrieveCars(){
 
-        CarDataService.getAll()
+        /* CarDataService.getAll()
         .then(response => {
           this.setState({
             cars: response.data
@@ -67,7 +67,20 @@ export default class CarList extends Component{
         })
         .catch(e => {
           console.log(e);
-        });
+        }); */
+
+        CarDataService.getAllCars()
+        .then( response => {
+            this.setState({
+                cars: response.data,
+            });
+            console.log("Cars from getAllCars()" , response.data)
+
+        })
+        .catch( err =>{
+            console.log(err);
+        })
+
     }
 
     updateCar(carStockNum, index){

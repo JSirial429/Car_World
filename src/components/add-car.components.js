@@ -74,24 +74,28 @@ export default class AddCar extends Component{
 
     saveCar(){
         const data={
+            vin: this.state.vin,
             make: this.state.make,
             model: this.state.model,
             color: this.state.color,
-            mileage: parseInt(this.state.miles)
+            mileage: parseInt(this.state.miles),
+            transmission: this.state.transmission,
         };
-        console.log(data);
-        CarDataService.create(data)
+        console.log("Data to be posted:", data);
+        CarDataService.postCar(data)
         .then(response => {
          this.setState({
-             id: response.data.id,
+             //id: response.data.id,
+             vin: response.data.vin,
              make: response.data.make,
              model: response.data.model,
              color: response.data.color,
              miles: response.data.miles,
+             transmission: response.data.transmission,
 
          }) 
          
-         console.log(response.data);
+         console.log("data returned:", response.data);
 
         })
         .catch(e=>{

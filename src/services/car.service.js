@@ -27,8 +27,9 @@ class CarDataService{
         return http.get('/cars');
     }
 
-    postCar(){
-        return http.post('/car');
+    postCar(data){
+        console.log("postCar axios call data: ", data)
+        return http.post('/car', data);
     }
 
     deleteCar(){
