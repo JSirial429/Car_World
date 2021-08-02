@@ -18,11 +18,12 @@ export default class CarList extends Component{
             
             cars:[],
 
-            stockNum: "",
+            id: "",
             make: "",
             model: "",
             color: "",
             mileage: "",
+            transmission: "",
             carSelected: false,
             show:false
         }
@@ -83,7 +84,8 @@ export default class CarList extends Component{
 
     }
 
-    updateCar(carStockNum, index){
+    //TO DO
+    /* updateCar(carStockNum, index){
         console.log(`Stock:${carStockNum} is going to be updated`);
         CarDataService.getCar(carStockNum)
         .then( response => {
@@ -96,11 +98,11 @@ export default class CarList extends Component{
         })
 
         
-    }
+    } */
 
-    deleteCar(carStockNum){
-        console.log(`Stock number:${carStockNum} is going to be deleted`);
-        CarDataService.deleteCar(carStockNum)
+    deleteCar(carVIN){
+        console.log(`VIN number:${carVIN} is going to be deleted`);
+        CarDataService.deleteCar(carVIN)
         .then( response =>{
             console.log(response.data)
             this.retrieveCars();
@@ -115,30 +117,38 @@ export default class CarList extends Component{
         return(
             <tr key={index}>
                 <td>
-                    {car.stockNum}
+                    {car.VIN}
                 </td>
                 <td>
-                    {car.make}
+                    {car.Make}
                 </td>
                 <td>
-                    {car.model}
+                    {car.Model}
                 </td>
                 <td>
-                    {car.color}
+                    {car.Color}
                 </td>
                 <td>
-                    {car.mileage}
+                    {car.Miles}
                 </td>
                 <td>
+                    {car.Transmission}
+                </td>
+                {/*<td>*/}
                     {/* <button onClick={ () => this.showUpdateModal(car.stockNum)} className="updateBtn">
                         Update
                     </button> */}
-                    <button className="updateBtn">
-                    <Link to={"/update"}>Update</Link>
-                    </button>
-                </td>
+                    {/* <button className="updateBtn">
+                    <Link to={{
+                        pathname: "/update",
+                        props:{
+                            message: 'Hello World!'
+                            }
+                        }} >Update</Link>
+                    </button> */}
+                {/*</td>*/}
                 <td>
-                    <button onClick={ () => this.deleteCar(car.stockNum)} className="deleteBtn">
+                    <button onClick={ () => this.deleteCar(car.VIN)} className="deleteBtn">
                         Delete
                     </button>
                 </td>
@@ -157,7 +167,7 @@ export default class CarList extends Component{
                     <thead>
                         <tr>
                             <th>
-                                Stock Number
+                                VIN
                             </th>
                             <th>
                                 Make
@@ -172,8 +182,11 @@ export default class CarList extends Component{
                                 Mileage
                             </th>
                             <th>
-                                Update Button
+                                Transmission
                             </th>
+                            {/* <th>
+                                Update Button
+                            </th> */}
                             <th>
                                 Delete Button
                             </th>

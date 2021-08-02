@@ -21,7 +21,7 @@ export default class AddCar extends Component{
         
 
         this.state = {
-            //id: null,
+            id: null,
             vin:"",
             make: "",
             model: "",
@@ -84,8 +84,8 @@ export default class AddCar extends Component{
         console.log("Data to be posted:", data);
         CarDataService.postCar(data)
         .then(response => {
-         this.setState({
-             //id: response.data.id,
+         /* this.setState({
+             id: response.data.id,
              vin: response.data.vin,
              make: response.data.make,
              model: response.data.model,
@@ -93,13 +93,25 @@ export default class AddCar extends Component{
              miles: response.data.miles,
              transmission: response.data.transmission,
 
-         }) 
+         }) */ 
+
+         this.setState({
+          id: "",
+          vin: "",
+          make: "",
+          model: "",
+          color: "",
+          miles: "",
+          transmission: "",
+
+      }) 
          
          console.log("data returned:", response.data);
 
         })
         .catch(e=>{
             console.log(e);
+            alert("Process failed please try again");
         })
 
     };

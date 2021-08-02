@@ -6,6 +6,7 @@ export default class UpdateCar extends Component{
 
         return(
             <div>
+                {console.log(this.props)}
                 <button>Hello</button>
             </div>
         )

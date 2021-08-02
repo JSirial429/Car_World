@@ -32,9 +32,10 @@ class CarDataService{
         return http.post('/car', data);
     }
 
-    deleteCar(){
+    deleteCar(vin){
 
-        return http.post('/deleteCar');
+        console.log("deleteCar axios call data: ", vin)
+        return http.delete(`/deleteCar/${vin}`);
 
     }
 
