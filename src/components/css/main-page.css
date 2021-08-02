@@ -11,6 +11,9 @@
 .Header{
     margin: 25px 0 10px 0;
     text-align: center;
+    color: tomato;
+    font-weight: bold;
+    font-size: 80px;
 }
 
 .radio-buttons-auto{

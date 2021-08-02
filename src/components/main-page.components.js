@@ -70,11 +70,14 @@ export default class MainPage extends Component{
 
                                 <Card>
                                     <Accordion.Toggle as={Card.Header} eventKey="1">
-                                        TAB 2
+                                        How does it work?
                                     </Accordion.Toggle>
 
                                     <Accordion.Collapse eventKey="1">
-                                        <Card.Body>This is second tab body</Card.Body>
+                                        <Card.Body>To add cars click on the Add link on top of the nav bar and proceed to fill the following fields. You must enter a VIN,
+                                            otherwise you will not be able to add a car to your inventory. Once added you can click on the car link on the nav bar to view a 
+                                            list of all cars in your inventory.
+                                        </Card.Body>
                                     </Accordion.Collapse>
                                 </Card>
                             </Accordion>
